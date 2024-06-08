@@ -1,6 +1,7 @@
 import { BankAccount } from "./oop/bank.js";
 import { Customer } from "./oop/static.js";
 import { Circle } from "./oop/circle.js";
+import { Student, MyClass } from "./oop/private.js";
 
 const account = new BankAccount("John Doe");
 
@@ -41,3 +42,17 @@ new Circle(10, "blue");
 
 Circle.radius = 12;
 console.log(Circle.radius);
+
+const student = new Student("John Doe", 10, "M", 5);
+
+console.log(student);
+
+console.log(student.gender); // undefined because it's private
+
+console.log(student.name); // John Doe
+console.log(student.age); // 10
+// console.log(student.#pvtMethod()); // Cannot access private method
+
+student.showPvtMethod(); // This calls the private method inside the class from a public method
+
+new MyClass();

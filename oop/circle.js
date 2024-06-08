@@ -22,4 +22,16 @@ export class Circle {
 
     this._radius = val;
   }
+
+  get color() {
+    return this._color;
+  }
+
+  set color(val) {
+    if (Circle.allowedColors.has(val)) {
+      this._color = val;
+    } else {
+      throw new Error("Invalid color. Please try again.");
+    }
+  }
 }
